@@ -15,12 +15,14 @@ import { HomeComponent } from './components/home/home.component';
 //import home
 
 //import other modules
-import { FirebaseModule } from './firebase.module'
+import { FirebaseModule } from './firebase.module';
+import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
