@@ -11,13 +11,16 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 //import home
 
 //import other modules
+import { FirebaseModule } from './firebase.module'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FirebaseModule
   ],
   providers: [],
   bootstrap: [AppComponent],
