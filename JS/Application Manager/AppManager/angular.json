@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "AppManager"
+  "defaultProject": "AppManager",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,32 @@
+<mat-nav-list>
+  <div>
+    <a mat-list-item routerLink="/">
+      <mat-icon>home</mat-icon>
+      Home
+    </a>
+    <ng-template [ngIf]="!isAuth">
+      <a mat-list-item routerLink="/login">
+        <mat-icon>account_circle</mat-icon>
+        Sign In
+      </a>
+      <a mat-list-item routerLink="/register">
+        <mat-icon>perm_identity</mat-icon>
+        Sign Up
+      </a>
+    </ng-template>
+    <!-- <ng-template [ngIf]="isAuth">
+      <a mat-list-item routerLink="/listing/create">
+        <mat-icon>directions_car</mat-icon>
+        Create Listing
+      </a>
+      <a mat-list-item routerLink="/user/details/{{ userId }}">
+        <mat-icon>assignment_ind</mat-icon>
+        My Profile
+      </a>
+      <a (click)="logout()" class="logout-link" mat-list-item>
+        <mat-icon>eject</mat-icon>
+        Logout
+      </a>
+    </ng-template> -->
+  </div>
+</mat-nav-list>

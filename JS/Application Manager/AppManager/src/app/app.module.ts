@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module'
 import { FlexLayoutModule } from '@angular/flex-layout'
+import {ShareModule} from './components/shared/share/share.module'
 
 
 import { AppComponent } from './app.component';
@@ -16,13 +17,11 @@ import { HomeComponent } from './components/home/home.component';
 
 //import other modules
 import { FirebaseModule } from './firebase.module';
-import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,9 +34,9 @@ import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    FirebaseModule
+    FirebaseModule,
+    ShareModule
   ],
-  providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
