@@ -1,0 +1,13 @@
+img {
+  max-width: 100%;
+  height: 300px;
+}
+
+.flex-gap {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.flex-gap>a {
+  margin: 7px;
+}
