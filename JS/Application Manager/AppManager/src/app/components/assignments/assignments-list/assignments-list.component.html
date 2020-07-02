@@ -1,0 +1,97 @@
+<div class="list row" *ngIf="assignments">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchName()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Assignments List</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngIf="assignments.length === 0">
+        There are no available assignments at the moment! Please create one by going to Create Assignment page!
+      </li>
+      <li
+        class="list-group-item"
+        *ngFor="let assignment of assignments; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveAssignment(assignment, i)"
+      >
+        {{ assignment.name }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllAssignments()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentAssignment">
+      <h4>Assignment</h4>
+      <div>
+        <label><strong>Name:</strong></label> {{ currentAssignment.name }}
+      </div>
+      <div>
+        <label><strong>Email:</strong></label>
+        {{ currentAssignment.email }}
+      </div>
+      <div>
+        <label><strong>Age:</strong></label>
+        {{ currentAssignment.age }}
+      </div>
+      <div>
+        <label><strong>Phone Number:</strong></label>
+        {{ currentAssignment.phone }}
+      </div>
+      <div>
+        <label><strong>Preferred Way of Communication:</strong></label>
+        {{ currentAssignment.preferredCommunication }}
+      </div>
+      <div>
+        <label><strong>English Level:</strong></label>
+        {{ currentAssignment.englishLevel }}
+      </div>
+      <div>
+        <label><strong>Available to Start:</strong></label>
+        {{ currentAssignment.availableToStart | date: 'dd/MM/yyyy' }}
+      </div>
+      <div *ngIf="currentAssignment.skills !== ''">
+        <label><strong>Technical Skills and Courses:</strong></label>
+        {{ currentAssignment.skills }}
+      </div>
+      <div *ngIf="currentAssignment.presentation !== ''">
+        <label><strong>Short Personal Presentation (e.g. reason for joining the program):</strong></label>
+        {{ currentAssignment.presentation }}
+      </div>
+      <div>
+        <label><strong>"Study from home":</strong></label>
+        {{ currentAssignment.studyFromHome ? 'Yes' : "No" }}
+      </div>
+
+      <a routerLink="/assignments/{{ currentAssignment.id }}">
+        <button mat-raised-button color="accent">
+            <mat-icon>assignment</mat-icon>
+            Details
+        </button>
+      </a>
+    </div>
+
+    <div *ngIf="!currentAssignment">
+      <br />
+      <p>Please click on a Assignment...</p>
+    </div>
+  </div>
+</div>
