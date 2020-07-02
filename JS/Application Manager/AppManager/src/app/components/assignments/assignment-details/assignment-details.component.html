@@ -1,0 +1,88 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Assignment Details</mat-card-title>
+      </mat-card-header>
+  
+      <form (ngSubmit)="updateAssignment()" [formGroup]="assignmentForm" class="example-form">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input formControlName="name" matInput type="text" placeholder="Name...">
+            <mat-hint>Required</mat-hint>
+            <mat-error *ngIf="assignmentForm.get('name').hasError('required')">Name is required.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input formControlName="email" matInput type="text" placeholder="Email...">
+            <mat-hint>Required</mat-hint>
+            <mat-error *ngIf="assignmentForm.get('email').hasError('required')">Email is required.</mat-error>
+            <mat-error *ngIf="assignmentForm.get('email').hasError('email')">Email must be valid!</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input formControlName="age" matInput type="number" placeholder="Age...">
+            <mat-hint>Required</mat-hint>
+            <mat-error *ngIf="assignmentForm.get('age').hasError('required')">Age is required.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input formControlName="phone" matInput type="text" placeholder="Phone Number...">
+            <mat-hint>Required</mat-hint>
+            <mat-error *ngIf="assignmentForm.get('phone').hasError('required')">Phone is required.</mat-error>
+          </mat-form-field>
+
+          <label id="example-radio-group-label">Preferred type of communication: </label>
+          <mat-radio-group
+            formControlName="preferred"
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="preferredCommunication">
+            <mat-radio-button class="example-radio-button" *ngFor="let type of offerredCommunications" [value]="type">
+              {{type}}
+            </mat-radio-button>
+          </mat-radio-group>
+
+          <mat-form-field appearance="fill">
+            <mat-label>English Level</mat-label>
+            <mat-select formControlName="level" [(ngModel)]="englishLevel" name="level">
+              <mat-option *ngFor="let level of levels" [value]="level">
+                {{level}}
+              </mat-option>
+            </mat-select>
+            <mat-hint>Required</mat-hint>
+            <mat-error *ngIf="assignmentForm.get('level').hasError('required')">English Level is required.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Available to start</mat-label>
+            <input formControlName="startDate" matInput [min]="currDate" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-hint>Required</mat-hint>
+            <mat-error *ngIf="assignmentForm.get('startDate').hasError('required')">Start Date is required.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <textarea formControlName="skills" matInput type="text" placeholder="Technical Skills and Courses..."></textarea>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <textarea formControlName="presentation" matInput type="text" placeholder="Short Personal Presentation (e.g. reason for joining the program)..."></textarea>
+          </mat-form-field>
+
+          <section class="example-section">
+            <mat-checkbox ngDefaultControl formControlName="studyHome" class="example-margin" [(ngModel)]="studyFromHome">
+              Study from home
+            </mat-checkbox>
+          </section>
+          
+        </mat-card-content>
+        <button [disabled]="assignmentForm.invalid" mat-stroked-button color="primary" class="btn-block">
+          Edit Assignment
+        </button>
+      </form>
+    <button mat-raised-button (click)="deleteAssignment()" color="warn" class="deleteBtn btn-block">
+        Delete Assignment
+    </button>
+    </mat-card>
+</div>
