@@ -4,18 +4,25 @@ const Assignment = db.assignments;
 // Create and Save a new Assignment
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.title) {
+    if (!req.body.name) {
         res.status(400).send({
-            message: "Content can not be empty!"
+            message: "Name can not be empty!"
         });
         return;
     }
 
     // Create an Assignment
     const assignment = new Assignment({
-        title: req.body.title,
-        description: req.body.description,
-        published: req.body.published ? req.body.published : false
+        name: req.body.name,
+        email: req.body.email,
+        age: req.body.age,
+        phone: req.body.phone,
+        preferredCommunication: req.body.preferred,
+        englishLevel: req.body.level,
+        availableToStart: req.body.startDate,
+        skills: req.body.skills,
+        presentation: req.body.presentation,
+        studyFromHome: req.body.studyHome
     });
 
     // Save Assignment in the database
