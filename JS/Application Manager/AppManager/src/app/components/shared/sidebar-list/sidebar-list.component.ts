@@ -6,21 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar-list.component.css']
 })
 export class SidebarListComponent implements OnInit {
-  isAuth: boolean;
-  userId: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.isAuth = false
   }
 
   getUserId(){
-    
   }
 
   logout(){
-    
   }
 
 }

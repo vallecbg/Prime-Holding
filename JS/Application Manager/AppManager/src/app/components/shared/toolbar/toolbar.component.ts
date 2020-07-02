@@ -14,7 +14,6 @@ export class ToolbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.isAuth = false
   }
 
   getUserId(){

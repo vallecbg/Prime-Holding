@@ -4,29 +4,13 @@
       <mat-icon>home</mat-icon>
       Home
     </a>
-    <ng-template [ngIf]="!isAuth">
-      <a mat-list-item routerLink="/login">
-        <mat-icon>account_circle</mat-icon>
-        Sign In
-      </a>
-      <a mat-list-item routerLink="/register">
-        <mat-icon>perm_identity</mat-icon>
-        Sign Up
-      </a>
-    </ng-template>
-    <!-- <ng-template [ngIf]="isAuth">
-      <a mat-list-item routerLink="/listing/create">
-        <mat-icon>directions_car</mat-icon>
-        Create Listing
-      </a>
-      <a mat-list-item routerLink="/user/details/{{ userId }}">
-        <mat-icon>assignment_ind</mat-icon>
-        My Profile
-      </a>
-      <a (click)="logout()" class="logout-link" mat-list-item>
-        <mat-icon>eject</mat-icon>
-        Logout
-      </a>
-    </ng-template> -->
+    <a mat-list-item routerLink="/add">
+      <mat-icon>add</mat-icon>
+      Create Assignment
+    </a>
+    <a mat-list-item routerLink="/assignments">
+      <mat-icon>perm_contact_calendar</mat-icon>
+      All Assignments
+    </a>
   </div>
 </mat-nav-list>
