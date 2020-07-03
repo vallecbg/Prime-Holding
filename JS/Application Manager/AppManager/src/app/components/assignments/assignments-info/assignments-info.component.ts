@@ -13,7 +13,7 @@ export class AssignmentsInfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngOnChanges(changes: SimpleChange) : void {
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) : void {
     console.log(changes.currentAssignment);
     this.currentAssignment = changes.currentAssignment.currentValue
   }
