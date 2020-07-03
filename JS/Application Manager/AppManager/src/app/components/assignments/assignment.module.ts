@@ -7,13 +7,15 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
 import { AssignmentsListComponent } from './assignments-list/assignments-list.component'
-import { AssignmentDetailsComponent } from './assignment-details/assignment-details.component'
+import { AssignmentDetailsComponent } from './assignment-details/assignment-details.component';
+import { AssignmentsInfoComponent } from './assignments-info/assignments-info.component'
 
 @NgModule({
   declarations: [
     AddAssignmentComponent,
     AssignmentsListComponent,
-    AssignmentDetailsComponent
+    AssignmentDetailsComponent,
+    AssignmentsInfoComponent
   ],
   imports: [
     MaterialModule,

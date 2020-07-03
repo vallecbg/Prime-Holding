@@ -1,0 +1,60 @@
+
+  <div *ngIf="currentAssignment">
+    <h4>Assignment</h4>
+    <div>
+      <label><strong>Name:</strong></label> {{ currentAssignment.name }}
+    </div>
+    <div>
+      <label><strong>Email:</strong></label>
+      {{ currentAssignment.email }}
+    </div>
+    <div>
+      <label><strong>Age:</strong></label>
+      {{ currentAssignment.age }}
+    </div>
+    <div>
+      <label><strong>Phone Number:</strong></label>
+      {{ currentAssignment.phone }}
+    </div>
+    <div>
+      <label><strong>Preferred Way of Communication:</strong></label>
+      {{ currentAssignment.preferredCommunication }}
+    </div>
+    <div>
+      <label><strong>English Level:</strong></label>
+      {{ currentAssignment.englishLevel }}
+    </div>
+    <div>
+      <label><strong>Available to Start:</strong></label>
+      {{ currentAssignment.availableToStart | date: "dd/MM/yyyy" }}
+    </div>
+    <div *ngIf="currentAssignment.skills !== ''">
+      <label><strong>Technical Skills and Courses:</strong></label>
+      {{ currentAssignment.skills }}
+    </div>
+    <div *ngIf="currentAssignment.presentation !== ''">
+      <label
+        ><strong
+          >Short Personal Presentation (e.g. reason for joining the
+          program):</strong
+        ></label
+      >
+      {{ currentAssignment.presentation }}
+    </div>
+    <div>
+      <label><strong>"Study from home":</strong></label>
+      {{ currentAssignment.studyFromHome ? "Yes" : "No" }}
+    </div>
+
+    <a routerLink="/assignments/{{ currentAssignment.id }}">
+      <button mat-raised-button color="accent">
+        <mat-icon>assignment</mat-icon>
+        Details
+      </button>
+    </a>
+  </div>
+
+  <div *ngIf="!currentAssignment">
+    <br />
+    <p>Please click on a Assignment...</p>
+  </div>
