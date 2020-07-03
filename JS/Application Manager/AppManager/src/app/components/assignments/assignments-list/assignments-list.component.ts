@@ -53,6 +53,7 @@ export class AssignmentsListComponent implements OnInit {
           "Success",
           ToastrConfig
         );
+        this.currentAssignment = null
         this.retrieveAssignments();
       },
       (error) => {
@@ -64,6 +65,7 @@ export class AssignmentsListComponent implements OnInit {
   searchName(): void {
     this.assignmentService.findByName(this.name).subscribe(
       (data) => {
+        console.log(data);
         this.assignments = data;
       },
       (error) => {

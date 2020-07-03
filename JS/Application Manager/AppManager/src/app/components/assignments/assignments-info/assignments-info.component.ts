@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-assignments-info',
@@ -11,6 +11,11 @@ export class AssignmentsInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChange) : void {
+    console.log(changes.currentAssignment);
+    this.currentAssignment = changes.currentAssignment.currentValue
   }
 
 }
