@@ -40,10 +40,10 @@ exports.create = (req, res) => {
 
 // Retrieve all Assignments from the database.
 exports.findAll = (req, res) => {
-    const title = req.query.title;
-    var condition = title ? {
-        title: {
-            $regex: new RegExp(title),
+    const name = req.query.name;
+    var condition = name ? {
+        name: {
+            $regex: new RegExp(name),
             $options: "i"
         }
     } : {};
